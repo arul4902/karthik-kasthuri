@@ -1,0 +1,18 @@
+.main-content-wrapper {
+  position: relative;
+  z-index: 5;
+  margin-top: 0;
+  padding-bottom: 60px;
+}
+
+@media (max-width: 900px) {
+  .main-content-wrapper {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content-wrapper {
+    margin-top: 0;
+  }
+}

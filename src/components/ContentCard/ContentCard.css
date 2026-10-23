@@ -1,0 +1,327 @@
+.card-wrapper {
+  position: relative;
+  flex: 0 0 auto;
+  user-select: none;
+  cursor: pointer;
+  transition: transform var(--transition-base);
+}
+
+/* Card Sizes based on variants */
+.card-wrapper.landscape {
+  width: 250px;
+}
+
+.card-wrapper.portrait {
+  width: 185px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-bg-card);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.card-inner:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+/* Aspect Ratios */
+.card-thumb-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.landscape .card-thumb-container {
+  aspect-ratio: 16 / 9;
+}
+
+.portrait .card-thumb-container {
+  aspect-ratio: 2 / 3;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.card-wrapper:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* Top 10 Number Layout */
+.top10-item-container {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.top10-rank-number {
+  font-family: var(--font-brand);
+  font-size: 8rem;
+  line-height: 0.8;
+  font-weight: 900;
+  color: #000000;
+  -webkit-text-stroke: 3px #595959;
+  text-stroke: 3px #595959;
+  margin-right: -18px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.top10-rank-number.top3 {
+  -webkit-text-stroke: 3px #8c8c8c;
+}
+
+/* Continue Watching Progress Bar */
+.card-progress-bar-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 2;
+}
+
+.card-progress-bar-fill {
+  height: 100%;
+  background: var(--color-red);
+  box-shadow: 0 0 6px var(--color-red-glow);
+}
+
+/* Episode Badge */
+.card-episode-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 3px;
+  letter-spacing: 0.8px;
+  z-index: 2;
+}
+
+.card-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 10px 8px 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  z-index: 2;
+}
+
+.card-title-main {
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-title-tamil {
+  font-size: 0.72rem;
+  color: #F5A623;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-tamil-sub {
+  display: block;
+  font-size: 0.74rem;
+  color: #F5A623;
+  font-weight: 600;
+}
+
+.preview-synopsis-mini {
+  font-size: 0.75rem;
+  color: #ccc;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Netflix Expanded Hover Preview Card */
+.hover-preview-card {
+  position: absolute;
+  top: -30px;
+  left: -25px;
+  width: 300px;
+  background: #181818;
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  z-index: var(--z-hover-card);
+  animation: scaleUp 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center center;
+}
+
+.portrait .hover-preview-card {
+  width: 250px;
+  left: -20px;
+}
+
+.preview-media-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.preview-video,
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-title-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  max-width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-body {
+  padding: 14px;
+  background: #181818;
+}
+
+.preview-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.preview-actions-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.round-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(42, 42, 42, 0.7);
+  color: #FFFFFF;
+  transition: all var(--transition-fast);
+}
+
+.round-btn:hover {
+  border-color: #FFFFFF;
+  background: rgba(70, 70, 70, 0.9);
+  transform: scale(1.08);
+}
+
+.round-btn.play-btn {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #FFFFFF;
+}
+
+.round-btn.play-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.1);
+}
+
+.round-btn.active {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.preview-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.preview-meta .match {
+  color: #46d369;
+}
+
+.preview-meta .duration {
+  color: var(--color-text-secondary);
+}
+
+.badge-mini {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0 4px;
+  font-size: 0.66rem;
+  border-radius: 2px;
+  color: #ddd;
+}
+
+.preview-genres {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+.genre-dot {
+  color: var(--color-text-muted);
+  font-size: 0.6rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .card-wrapper.landscape {
+    width: 220px;
+  }
+  .card-wrapper.portrait {
+    width: 160px;
+  }
+}
+
+@media (max-width: 650px) {
+  .card-wrapper.landscape {
+    width: 165px;
+  }
+  .card-wrapper.portrait {
+    width: 125px;
+  }
+  .top10-rank-number {
+    font-size: 5.5rem;
+    margin-right: -12px;
+  }
+  .hover-preview-card {
+    display: none; /* Mobile taps open details modal instead of hover */
+  }
+}

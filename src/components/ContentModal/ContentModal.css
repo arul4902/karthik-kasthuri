@@ -1,0 +1,454 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: var(--z-modal);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 16px;
+  overflow-y: auto;
+  animation: fadeIn 220ms ease-out;
+}
+
+.modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  background-color: #181818;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin-bottom: 40px;
+  animation: scaleUp 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(24, 24, 24, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: #E50914;
+  border-color: #E50914;
+  transform: scale(1.08);
+}
+
+/* Chapter Chevrons */
+.modal-nav-chevrons {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.modal-chevron-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all var(--transition-fast);
+}
+
+.modal-chevron-btn:hover {
+  background: var(--color-red);
+  border-color: var(--color-red);
+  transform: scale(1.1);
+}
+
+/* Gallery Section */
+.modal-gallery-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 0;
+  margin-bottom: 24px;
+}
+
+.memory-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.memory-gallery-card {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.memory-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.memory-gallery-card:hover .memory-gallery-img {
+  transform: scale(1.08);
+}
+
+.modal-banner-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.modal-banner-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(180deg, transparent 0%, rgba(24, 24, 24, 0.8) 70%, #181818 100%);
+  pointer-events: none;
+}
+
+.modal-banner-actions {
+  position: absolute;
+  bottom: 30px;
+  left: 36px;
+  right: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.modal-banner-actions-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-sound-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.modal-sound-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  border-color: #fff;
+  transform: scale(1.08);
+}
+
+/* Modal Content Details */
+.modal-body {
+  padding: 0 36px 36px 36px;
+}
+
+.modal-details-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 36px;
+  margin-bottom: 36px;
+}
+
+.modal-synopsis {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #E5E5E5;
+  margin-top: 14px;
+}
+
+.modal-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Metadata Column */
+.modal-sidebar {
+  font-size: 0.85rem;
+  color: #777;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  line-height: 1.4;
+}
+
+.modal-sidebar-item {
+  word-break: break-word;
+}
+
+.modal-sidebar-label {
+  color: var(--color-text-secondary);
+}
+
+.modal-sidebar-value {
+  color: #FFFFFF;
+}
+
+/* Episodes Section */
+.modal-episodes-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  margin-bottom: 32px;
+}
+
+.episodes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.episodes-header h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.episodes-season-tag {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px 12px;
+  border-radius: var(--radius-xs);
+}
+
+.episode-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.episode-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.episode-index {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  width: 20px;
+  text-align: center;
+}
+
+.episode-thumb-container {
+  position: relative;
+  width: 140px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.episode-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.episode-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.episode-card:hover .episode-play-overlay {
+  opacity: 1;
+}
+
+.episode-info {
+  flex: 1;
+}
+
+.episode-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.episode-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.episode-duration {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.episode-synopsis {
+  font-size: 0.84rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* Similar Titles / More Like This */
+.modal-similar-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+}
+
+.modal-similar-section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.similar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.similar-card {
+  background: #232323;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.similar-card:hover {
+  transform: translateY(-4px);
+  background: #2c2c2c;
+}
+
+.similar-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.similar-card-body {
+  padding: 12px;
+}
+
+.similar-card-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.similar-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-details-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .modal-body {
+    padding: 0 20px 24px 20px;
+  }
+  .modal-banner-actions {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+  .episode-thumb-container {
+    width: 100px;
+  }
+  .episode-synopsis {
+    display: none;
+  }
+  .similar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .memory-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-overlay {
+    padding: 0;
+  }
+  .modal-container {
+    border-radius: 0;
+    min-height: 100vh;
+    margin-bottom: 0;
+  }
+  .modal-nav-chevrons {
+    display: none;
+  }
+  .modal-title {
+    font-size: 1.55rem;
+  }
+  .modal-tamil-title {
+    font-size: 0.95rem;
+  }
+  .modal-banner-actions {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .modal-action-btn-play {
+    padding: 8px 18px;
+    font-size: 0.88rem;
+  }
+  .modal-banner-media {
+    height: 280px;
+  }
+}
