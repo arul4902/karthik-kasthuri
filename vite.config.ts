@@ -13,7 +13,9 @@ export default defineConfig({
         server.middlewares.use('/assets', (req, res, next) => {
           try {
             const cleanUrl = (req.url || '').split('?')[0].replace(/^\//, '')
-            const filePath = path.join(__dirname, 'assets', decodeURIComponent(cleanUrl))
+            const publicPath = path.join(__dirname, 'public', 'assets', decodeURIComponent(cleanUrl))
+            const rootPath = path.join(__dirname, 'assets', decodeURIComponent(cleanUrl))
+            const filePath = fs.existsSync(publicPath) ? publicPath : rootPath
             if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
               const ext = path.extname(filePath).toLowerCase()
               const stat = fs.statSync(filePath)
