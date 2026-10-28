@@ -51,6 +51,8 @@ export const Hero: React.FC = () => {
             loop
             muted={isMuted}
             playsInline
+            preload="auto"
+            poster={heroTitle.backdrop || ASSETS.HERO_FIELD_RUN}
             onError={() => {
               if (heroTitle.fallbackVideo && videoRef.current && videoRef.current.src !== heroTitle.fallbackVideo) {
                 videoRef.current.src = heroTitle.fallbackVideo;

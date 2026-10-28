@@ -19,8 +19,8 @@ export const ASSETS = {
   SONG_MP3: '/assets/karthik%20kasthuri.mp3',
 
   // Video assets
-  MAIN_VIDEO: '/assets/WhatsApp%20Video%202026-10-17%20at%2011.27.18%20PM.mp4',
-  VIDEO_2: '/assets/WhatsApp%20Video%202026-10-17%20at%2011.27.11%20PM.mp4',
+  MAIN_VIDEO: '/assets/WhatsApp%20Video%202026-10-17%20at%2011.27.11%20PM.mp4',
+  VIDEO_2: '/assets/WhatsApp%20Video%202026-10-17%20at%2011.27.18%20PM.mp4',
   VIDEO_3: '/assets/WhatsApp%20Video%202026-10-17%20at%2011.27.11%20PM%20(1).mp4',
   VIDEO_4: '/assets/WhatsApp%20Video%202026-10-17%20at%2011.28.27%20PM.mp4',
   VIDEO_5: '/assets/WhatsApp%20Video%202026-10-17%20at%2011.29.12%20PM.mp4',
